@@ -1,6 +1,10 @@
+import EventDashboard from '../../features/events/dashboard/EventDashboard'
+
 function App() {
   return ( 
-    <h1 className='logo'>Pegasus II</h1>
+    <div>
+      <EventDashboard />
+    </div>
   )
 }
  
