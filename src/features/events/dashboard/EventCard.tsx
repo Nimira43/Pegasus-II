@@ -1,6 +1,6 @@
 export default function EventCard() {
   return (
-    <div className='card card-border bg-grey-light-extra w-96'>
+    <div className='card card-border bg-grey-light-extra w-full'>
       <div className='card-body'>
         <h2 className='card-title'>Title</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, porro!</p>
