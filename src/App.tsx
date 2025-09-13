@@ -1,6 +1,8 @@
-const App = () => {
+function App() {
   return ( 
-    <div>Pegasus II</div>
+    <div>
+      <h1 className='logo'>Pegasus II</h1>
+    </div>
   )
 }
  
