@@ -1,8 +1,7 @@
 function App() {
   return ( 
-    <div>
+    <div className='bg-dark text-main p-6 text-3xl'>
       <h1 className='logo'>Pegasus II</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas voluptatem aperiam tempora quidem corrupti aliquid.</p>
     </div>
   )
 }
