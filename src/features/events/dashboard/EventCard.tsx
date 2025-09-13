@@ -16,9 +16,13 @@ export default function EventCard() {
             <p className='text-sm text-grey-dark'>Hosted by John</p>  
           </div>
         </div>
+
+        <div className='bg-grey-light my-3 px-4 py-2 rounded-lg'>
+          Attendees go here
+        </div>
         
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, porro!</p>
-        <div className='card-actions justify-end'>
+        <div className='card-actions flex'>
+          <div className='flex flex-1'>Description: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio, iusto?</div>
           <button className='btn bg-main text-light hover:bg-main-dark btn-hover'>Click</button>
         </div>
       </div>
