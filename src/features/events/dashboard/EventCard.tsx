@@ -1,4 +1,4 @@
-import user from '../../../images/user.png'
+import user from '../../../images/m4.jpg'
 import EventAttendees from './EventAttendees'
 
 export default function EventCard() {
