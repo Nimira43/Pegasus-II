@@ -20,6 +20,17 @@ export default {
       },
     },
   },
-  plugins: [],
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          primary: '#1d5cdb',
+          'base-100': '#fafdff',         
+          'base-content': '#111', 
+        },
+      },
+    ],
+  },
+  plugins: [require('daisyui')],
 }
 
