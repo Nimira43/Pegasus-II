@@ -1,5 +1,7 @@
 export default function EventAttendees() {
   return (
-    <div>EventAttendees</div>
+    <div className='avatar-group'>
+
+    </div>
   )
 }

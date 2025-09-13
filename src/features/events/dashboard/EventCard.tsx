@@ -1,4 +1,5 @@
 import user from '../../../images/user.png'
+import EventAttendees from './EventAttendees'
 
 export default function EventCard() {
   return (
@@ -18,7 +19,7 @@ export default function EventCard() {
         </div>
 
         <div className='bg-grey-light my-3 px-4 py-2 rounded-lg'>
-          Attendees go here
+          <EventAttendees />
         </div>
         
         <div className='card-actions flex'>
