@@ -8,7 +8,7 @@ export default function EventAttendees() {
         .map((_, index) => (
           <div 
             key={index}
-            className='avatar border-dark border-2'
+            className='avatar border-grey-medium border-2'
           >
             <div className='w-12'>
               <img 
