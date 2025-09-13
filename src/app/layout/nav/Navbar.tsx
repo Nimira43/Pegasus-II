@@ -9,7 +9,10 @@ export default function Navbar() {
           <a>Events</a>
           <a>Create</a>
         </nav>
-        
+        <div className='flex align-middle ml-auto gap-3'>
+          <button className='btn bg-light text-main uppercase'>Login</button>
+          <button className='btn bg-light text-main uppercase'>Register</button>
+        </div>
       </div>
     </header>
   )
