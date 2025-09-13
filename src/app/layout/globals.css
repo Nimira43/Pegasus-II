@@ -11,11 +11,18 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  button {
+    border: none !important;
+    box-shadow: none !important;
+  }
 }
 
 @layer components {
   .logo {
     font-family: 'Story Script', sans-serif;
+  }
+  .btn-hover {
+    transition: all 0.5s ease-in-out;
   }
 }
 
