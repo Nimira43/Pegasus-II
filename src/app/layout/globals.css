@@ -4,12 +4,18 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 300;
+@layer base {
+  html {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 
-.logo {
-  font-family: 'Story Script', sans-serif;
+@layer components {
+  .logo {
+    font-family: 'Story Script', sans-serif;
+  }
 }
 

@@ -1,6 +1,6 @@
 function App() {
   return ( 
-    <h1>Pegasus II</h1>
+    <h1 className='logo'>Pegasus II</h1>
   )
 }
  
