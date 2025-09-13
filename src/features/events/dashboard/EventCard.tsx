@@ -1,5 +1,6 @@
 export default function EventCard() {
   return (
-    <div>EventCard</div>
+    <div>Event Card
+    </div>
   )
 }
