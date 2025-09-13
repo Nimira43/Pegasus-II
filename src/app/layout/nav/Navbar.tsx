@@ -10,8 +10,8 @@ export default function Navbar() {
           <a>Create</a>
         </nav>
         <div className='flex align-middle ml-auto gap-3'>
-          <button className='btn bg-light text-main hover:bg-grey-light uppercase btn-hover'>Login</button>
-          <button className='btn bg-light text-main hover:bg-grey-light uppercase btn-hover'>Register</button>
+          <button className='btn bg-light text-main hover:bg-grey-light btn-hover'>Login</button>
+          <button className='btn bg-light text-main hover:bg-grey-light btn-hover'>Register</button>
         </div>
       </div>
     </header>
