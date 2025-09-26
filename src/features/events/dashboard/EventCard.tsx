@@ -13,7 +13,7 @@ export default function EventCard() {
             />
           </figure>
           <div>
-            <h2 className='card-title'>Event Title</h2>
+            <h2 className='card-title font-medium'>Event Title</h2>
             <p className='text-sm text-grey-dark'>Hosted by John</p>  
           </div>
         </div>
