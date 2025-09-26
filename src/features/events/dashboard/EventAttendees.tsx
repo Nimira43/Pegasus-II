@@ -1,4 +1,4 @@
-import user from '../../../images/f6.jpg'
+import user from '/user.png'
 
 export default function EventAttendees() {
   return (
