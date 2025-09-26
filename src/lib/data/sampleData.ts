@@ -94,8 +94,8 @@ export const events: AppEvent[] = [
     hostUid: users[1].uid,
     attendees: [
       {id: users[1].uid, displayName: users[1].displayName, photoURL: users[1].photoURL, isHost: true},
-      {id: users[2].uid, displayName: users[2].displayName, photoURL: users[2].photoURL},
-      {id: users[0].uid, displayName: users[0].displayName, photoURL: users[0].photoURL}
+      {id: users[2].uid, displayName: users[2].displayName, photoURL: users[2].photoURL, isHost: false},
+      {id: users[0].uid, displayName: users[0].displayName, photoURL: users[0].photoURL, isHost: false}
     ],
     attendeeIds: [users[0].uid, users[1].uid, users[2].uid]
   },
@@ -126,7 +126,7 @@ export const events: AppEvent[] = [
     hostUid: users[1].uid,
     attendees: [
       {id: users[1].uid, displayName: users[1].displayName, photoURL: users[1].photoURL, isHost: true},
-      {id: users[2].uid, displayName: users[2].displayName, photoURL: users[2].photoURL}
+      {id: users[2].uid, displayName: users[2].displayName, photoURL: users[2].photoURL, isHost: false}
     ],
     attendeeIds: [users[1].uid, users[2].uid]
   },
@@ -157,7 +157,7 @@ export const events: AppEvent[] = [
     hostUid: users[2].uid,
     attendees: [
       {id: users[2].uid, displayName: users[2].displayName, photoURL: users[2].photoURL, isHost: true},
-      {id: users[0].uid, displayName: users[0].displayName, photoURL: users[0].photoURL}
+      {id: users[0].uid, displayName: users[0].displayName, photoURL: users[0].photoURL, isHost: false}
     ],
     attendeeIds: [users[0].uid, users[2].uid]
   }
