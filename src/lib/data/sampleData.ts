@@ -1,4 +1,4 @@
-import type { AppUser } from '../types'
+import type { AppEvent, AppUser } from '../types'
 
 export const users: AppUser[] = [
   {
@@ -63,7 +63,7 @@ export const users: AppUser[] = [
   }
 ]
 
-export const events = [
+export const events: AppEvent[] = [
   {
     id: 'activity-p1',
     title: 'Past Activity 1',
