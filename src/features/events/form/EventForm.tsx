@@ -33,7 +33,16 @@ export default function EventForm() {
           placeholder='Venue'  
         />
         <div className='flex justify-end w-full gap-3'>
-          
+          <button
+            className='btn bg-main text-light hover:bg-main-dark btn-hover'
+          >
+            Cancel
+          </button>
+          <button
+            className='btn bg-main text-light hover:bg-main-dark btn-hover'
+          >
+            Submit
+          </button>
         </div>
       </form>
     </div>
