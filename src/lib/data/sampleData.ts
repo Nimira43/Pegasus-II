@@ -1,4 +1,6 @@
-export const users = [
+import type { AppUser } from '../types'
+
+export const users: AppUser[] = [
   {
     uid: 'vince-id',
     displayName: 'Vince Cartwright',
