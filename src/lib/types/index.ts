@@ -19,3 +19,10 @@ export type AppEvent = {
   attendees: AppUser[],
   attendeeIds: string[],
 }
+
+export type Attendee = {
+  id: string,
+  displayName: string,
+  photoURL?: string,
+  isHost: boolean,
+}
