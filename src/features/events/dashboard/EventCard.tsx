@@ -1,7 +1,12 @@
 import user from '/user.png'
 import EventAttendees from './EventAttendees'
+import type { AppEvent } from '../../../lib/types'
 
-export default function EventCard() {
+type Props = {
+  event: AppEvent
+}
+
+export default function EventCard({event}: Props) {
   return (
     <div className='card card-border bg-grey-light-extra w-full'>
       <div className='card-body'>
@@ -13,8 +18,8 @@ export default function EventCard() {
             />
           </figure>
           <div>
-            <h2 className='card-title font-medium'>Event Title</h2>
-            <p className='text-sm text-grey-dark'>Hosted by John</p>  
+            <h2 className='card-title font-medium'>{event.title}</h2>
+            <p className='text-sm text-grey-dark'></p>  
           </div>
         </div>
 
