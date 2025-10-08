@@ -7,6 +7,8 @@ type Props = {
 }
 
 export default function EventCard({event}: Props) {
+  const host = event.attendees.find(x => x.id === event.hostUid)
+
   return (
     <div className='card card-border bg-grey-light-extra w-full'>
       <div className='card-body'>
