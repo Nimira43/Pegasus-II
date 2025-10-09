@@ -5,25 +5,25 @@ export const users: AppUser[] = [
     uid: 'vince-id',
     displayName: 'Vince Cartwright',
     email: 'vince.cartwright@pegasus.com',
-    photoURL: 'https://randomuser.me/api/portraits/men/1.jpg'
+    photoURL: 'https://randomuser.me/api/portraits/men/11.jpg'
   },
   {
     uid: 'carlton-id',
     displayName: 'Carlton Hughes',
     email: 'carlton.hughes@griffin.com',
-    photoURL: 'https://randomuser.me/api/portraits/men/3.jpg'
+    photoURL: 'https://randomuser.me/api/portraits/men/13.jpg'
   },
   {
     uid: 'amanda-id',
     displayName: 'Amanda Wilkes',
     email: 'amanda.wilkes@unicorn.com',
-    photoURL: 'https://randomuser.me/api/portraits/women/8.jpg'
+    photoURL: 'https://randomuser.me/api/portraits/women/38.jpg'
   },
   {
     uid: 'raj-id',
     displayName: 'Raj Singh',
     email: 'raj.singh@dragon.com',
-    photoURL: 'https://randomuser.me/api/portraits/men/15.jpg'
+    photoURL: 'https://randomuser.me/api/portraits/men/25.jpg'
   },
   {
     uid: 'sarah-id',
@@ -95,9 +95,9 @@ export const events: AppEvent[] = [
     attendees: [
       {id: users[1].uid, displayName: users[1].displayName, photoURL: users[1].photoURL, isHost: true},
       {id: users[2].uid, displayName: users[2].displayName, photoURL: users[2].photoURL, isHost: false},
-      {id: users[0].uid, displayName: users[0].displayName, photoURL: users[0].photoURL, isHost: false}
+      {id: users[7].uid, displayName: users[7].displayName, photoURL: users[7].photoURL, isHost: false}
     ],
-    attendeeIds: [users[0].uid, users[1].uid, users[2].uid]
+    attendeeIds: [users[0].uid, users[1].uid, users[7].uid]
   },
   {
     id: 'activity-f1',
@@ -109,9 +109,9 @@ export const events: AppEvent[] = [
     venue: 'Wolverhampton Art Gallery, Lichfield St, Wolverhampton WV1 1DU',
     latitude: 52.5862,
     longitude: -2.1267,
-    hostUid: users[2].uid,
-    attendees: [{id: users[2].uid, displayName: users[2].displayName, photoURL: users[2].photoURL, isHost: true}],
-    attendeeIds: [users[2].uid]
+    hostUid: users[5].uid,
+    attendees: [{id: users[5].uid, displayName: users[5].displayName, photoURL: users[5].photoURL, isHost: true}],
+    attendeeIds: [users[5].uid]
   },
   {
     id: 'activity-f2',
@@ -123,12 +123,12 @@ export const events: AppEvent[] = [
     venue: 'The Public, New Street, West Bromwich B70 7PG',
     latitude: 52.5196,
     longitude: -1.9945,
-    hostUid: users[1].uid,
+    hostUid: users[7].uid,
     attendees: [
-      {id: users[1].uid, displayName: users[1].displayName, photoURL: users[1].photoURL, isHost: true},
-      {id: users[2].uid, displayName: users[2].displayName, photoURL: users[2].photoURL, isHost: false}
+      {id: users[7].uid, displayName: users[7].displayName, photoURL: users[7].photoURL, isHost: true},
+      {id: users[5].uid, displayName: users[5].displayName, photoURL: users[5].photoURL, isHost: false}
     ],
-    attendeeIds: [users[1].uid, users[2].uid]
+    attendeeIds: [users[7].uid, users[5].uid]
   },
   {
     id: 'activity-f3',
@@ -140,8 +140,8 @@ export const events: AppEvent[] = [
     venue: 'The Distillery, 4 Sheepcote St, Birmingham B16 8AE',
     latitude: 52.4786,
     longitude: -1.9154,
-    hostUid: users[1].uid,
-    attendees: [{id: users[1].uid, displayName: users[1].displayName, photoURL: users[1].photoURL, isHost: true}],
+    hostUid: users[8].uid,
+    attendees: [{id: users[8].uid, displayName: users[8].displayName, photoURL: users[8].photoURL, isHost: true}],
     attendeeIds: [users[1].uid]
   },
   {
@@ -154,11 +154,11 @@ export const events: AppEvent[] = [
     venue: 'The Yard, 11-12 Bull Yard, Coventry CV1 1LH',
     latitude: 52.4078,
     longitude: -1.5074,
-    hostUid: users[2].uid,
+    hostUid: users[4].uid,
     attendees: [
-      {id: users[2].uid, displayName: users[2].displayName, photoURL: users[2].photoURL, isHost: true},
-      {id: users[0].uid, displayName: users[0].displayName, photoURL: users[0].photoURL, isHost: false}
+      {id: users[4].uid, displayName: users[4].displayName, photoURL: users[4].photoURL, isHost: true},
+      {id: users[9].uid, displayName: users[9].displayName, photoURL: users[9].photoURL, isHost: false}
     ],
-    attendeeIds: [users[0].uid, users[2].uid]
+    attendeeIds: [users[4].uid, users[9].uid]
   }
 ]
