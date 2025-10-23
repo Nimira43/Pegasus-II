@@ -7,7 +7,10 @@ type Props = {
   setFormOpen: (isOpen: boolean) => void
 }
 
-export default function EventDashboard() {
+export default function EventDashboard({
+  formOpen,
+  setFormOpen
+}: Props) {
   return (
     <div className='flex flex-row w-full gap-6'>
       <div className='w-3/5 flex flex-col gap-4'>
