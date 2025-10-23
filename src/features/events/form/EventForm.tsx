@@ -40,6 +40,7 @@ export default function EventForm({
         />
         <div className='flex justify-end w-full gap-3'>
           <button
+            onClick={() => setFormOpen(false)}
             type='button'
             className='btn bg-main text-light hover:bg-main-dark btn-hover'
           >
