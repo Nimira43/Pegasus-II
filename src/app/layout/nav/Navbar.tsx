@@ -13,7 +13,12 @@ export default function Navbar({
         </a>
         <nav className='flex gap-3 my-2 uppercase text-lg text-white'>
           <a className='font-normal'>Events</a>
-          <a className='font-normal'>Create</a>
+          <button 
+            className='font-normal'
+            onClick={setFormOpen(true)}
+          >
+            Create
+          </button>
         </nav>
         <div className='flex align-middle ml-auto gap-3'>
           <button className='btn bg-light text-main hover:bg-grey-light btn-hover'>Login</button>
