@@ -7,7 +7,7 @@ function App() {
 
   return ( 
     <div>
-      <Navbar />
+      <Navbar setFormOpen={setFormOpen}/>
       <div className='container mx-auto px-10 mt-24'>
         <EventDashboard 
           formOpen={formOpen}
