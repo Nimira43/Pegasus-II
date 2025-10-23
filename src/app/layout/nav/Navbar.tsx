@@ -1,8 +1,10 @@
 type Props = {
-  setFormOpen: (isOen: boolean) => void
+  setFormOpen: (isOpen: boolean) => void
 }
 
-export default function Navbar() {
+export default function Navbar({
+  setFormOpen
+}: Props) {
   return (
     <header className='p-3 w-full fixed top-0 z-50 bg-main'>
       <div className='flex align-middle items-center px-10 mx-auto gap-6'>
