@@ -24,7 +24,13 @@ export default function EventDashboard({
         }
       </div>
       <div className='w-2/5'>
-        <EventForm />
+        {formOpen && (
+          <EventForm 
+            setFormOpen={setFormOpen}
+          />
+        )}
+
+        
       </div>
     </div>
   )
