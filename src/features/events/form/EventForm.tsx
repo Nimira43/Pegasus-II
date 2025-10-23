@@ -1,3 +1,7 @@
+type Props = {
+  setFormOpen = (isOpen: boolean) => void
+}
+
 export default function EventForm() {
   return (
     <div className='card bg-grey-light-extra p-4 flex flex-col gap-3 w-full'>
