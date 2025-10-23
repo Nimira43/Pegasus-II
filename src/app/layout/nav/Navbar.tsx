@@ -15,7 +15,7 @@ export default function Navbar({
           <a className='font-normal'>Events</a>
           <button 
             className='font-normal'
-            onClick={setFormOpen(true)}
+            onClick={() => setFormOpen(true)}
           >
             Create
           </button>
