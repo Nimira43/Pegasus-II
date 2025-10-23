@@ -1,8 +1,10 @@
 type Props = {
-  setFormOpen = (isOpen: boolean) => void
+  setFormOpen: (isOpen: boolean) => void
 }
 
-export default function EventForm() {
+export default function EventForm({
+  setFormOpen
+}: Props) {
   return (
     <div className='card bg-grey-light-extra p-4 flex flex-col gap-3 w-full'>
       <h3 className='text-2xl font-medium text-center text-dark'>Create New Event</h3>
