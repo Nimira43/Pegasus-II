@@ -9,7 +9,10 @@ function App() {
     <div>
       <Navbar />
       <div className='container mx-auto px-10 mt-24'>
-        <EventDashboard />
+        <EventDashboard 
+          formOpen={formOpen}
+          setFormOpen={setFormOpen}
+        />
       </div> 
     </div>
   )
