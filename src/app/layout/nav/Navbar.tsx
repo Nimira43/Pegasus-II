@@ -1,3 +1,7 @@
+type Props = {
+  setFormOpen: (isOen: boolean) => void
+}
+
 export default function Navbar() {
   return (
     <header className='p-3 w-full fixed top-0 z-50 bg-main'>
