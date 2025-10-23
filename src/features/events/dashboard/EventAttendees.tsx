@@ -18,7 +18,6 @@ export default function EventAttendees({ attendees }: Props) {
                 alt="Attendees" 
               />
             </div>
-
           </div>
         ))
       }
