@@ -2,6 +2,11 @@ import { events } from '../../../lib/data/sampleData'
 import EventForm from '../form/EventForm'
 import EventCard from './EventCard'
 
+type Props = {
+  formOpen: boolean
+  setFormOpen: (isOpen: boolean) => void
+}
+
 export default function EventDashboard() {
   return (
     <div className='flex flex-row w-full gap-6'>
