@@ -26,7 +26,7 @@ export default function EventDashboard({
   return (
     <div className='flex flex-row w-full gap-6'>
       <div className='w-3/5 flex flex-col gap-4'>
-        {events
+        {appEvents
           .map((event) => (
             <EventCard 
               key={event.id}
