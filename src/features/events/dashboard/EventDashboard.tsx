@@ -17,6 +17,10 @@ export default function EventDashboard({
 
   useEffect(() => {
     setAppEvents(events)
+
+    return () => {
+      setAppEvents([])
+    }
   }, [])
 
   return (
