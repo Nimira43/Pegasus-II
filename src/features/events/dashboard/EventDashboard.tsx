@@ -15,7 +15,9 @@ export default function EventDashboard({
 }: Props) {
   const [appEvents, setAppEvents] = useState<AppEvent[]>([])
 
-  useEffect()
+  useEffect(() => {
+    setAppEvents(events)
+  }, [])
 
   return (
     <div className='flex flex-row w-full gap-6'>
