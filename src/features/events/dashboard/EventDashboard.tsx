@@ -13,7 +13,7 @@ export default function EventDashboard({
   formOpen,
   setFormOpen
 }: Props) {
-  const [appEvents, setAppEvents] = useState<AppEvent[]>(events)
+  const [appEvents, setAppEvents] = useState<AppEvent[]>([])
 
 
   return (
