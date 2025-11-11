@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { events } from '../../../lib/data/sampleData'
 import EventForm from '../form/EventForm'
 import EventCard from './EventCard'
@@ -11,6 +12,9 @@ export default function EventDashboard({
   formOpen,
   setFormOpen
 }: Props) {
+  const [appEvents, setAppEvents] = useState(events)
+
+
   return (
     <div className='flex flex-row w-full gap-6'>
       <div className='w-3/5 flex flex-col gap-4'>
