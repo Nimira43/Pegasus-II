@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { events } from '../../../lib/data/sampleData'
 import EventForm from '../form/EventForm'
 import EventCard from './EventCard'
+import type { AppEvent } from '../../../lib/types'
 
 type Props = {
   formOpen: boolean
@@ -12,7 +13,7 @@ export default function EventDashboard({
   formOpen,
   setFormOpen
 }: Props) {
-  const [appEvents, setAppEvents] = useState(events)
+  const [appEvents, setAppEvents] = useState<AppEvent[]>(events)
 
 
   return (
