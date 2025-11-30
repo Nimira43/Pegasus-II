@@ -28,7 +28,11 @@ export default function EventDashboard({
     <div className='flex flex-row w-full gap-6'>
       <div className='w-3/5 flex flex-col gap-4'>
         <AnimatePresence>
-          <motion.div>
+          <motion.div
+            initial={{ opacity: 0}}
+            animate={{ opacity: 1}}
+            exit={{ opacity: 0}}
+          >
             {appEvents
               .map((event) => (
                 <EventCard 
