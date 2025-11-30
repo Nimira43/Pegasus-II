@@ -3,6 +3,7 @@ import { events } from '../../../lib/data/sampleData'
 import EventForm from '../form/EventForm'
 import EventCard from './EventCard'
 import type { AppEvent } from '../../../lib/types'
+import { AnimatePresence } from 'motion/react'
 
 type Props = {
   formOpen: boolean
@@ -26,14 +27,16 @@ export default function EventDashboard({
   return (
     <div className='flex flex-row w-full gap-6'>
       <div className='w-3/5 flex flex-col gap-4'>
-        {appEvents
-          .map((event) => (
-            <EventCard 
-              key={event.id}
-              event={event}
-            />
-          ))
-        }
+        <AnimatePresence>
+          {appEvents
+            .map((event) => (
+              <EventCard 
+                key={event.id}
+                event={event}
+              />
+            ))
+          }
+        </AnimatePresence>
       </div>
       <div className='w-2/5'>
         {formOpen && (
