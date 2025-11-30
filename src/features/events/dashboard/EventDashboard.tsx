@@ -26,21 +26,28 @@ export default function EventDashboard({
 
   return (
     <div className='flex flex-row w-full gap-6'>
-      <div className='w-3/5 flex flex-col gap-4'>
+      <div className='w-3/5'>
         <AnimatePresence>
           <motion.div
-            initial={{ opacity: 0}}
-            animate={{ opacity: 1}}
-            exit={{ opacity: 0}}
+            initial={{ opacity: 0, x: -200}}
+            animate={{ opacity: 1, x: 0}}
+            exit={{ opacity: 0, x: -200 }}
+            transition={{
+              duration: 0.3,
+              type: 'tween',
+              ease: 'easeInOut'
+            }}
           >
-            {appEvents
-              .map((event) => (
-                <EventCard 
-                  key={event.id}
-                  event={event}
-                />
-              ))
-            }
+            <div className='flex flex-col gap-4'>
+              {appEvents
+                .map((event) => (
+                  <EventCard 
+                    key={event.id}
+                    event={event}
+                  />
+                ))
+              }    
+            </div>
           </motion.div>
         </AnimatePresence>
       </div>
