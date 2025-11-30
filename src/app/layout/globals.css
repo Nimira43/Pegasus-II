@@ -17,6 +17,10 @@
     font-weight: 500 !important;
     text-transform: uppercase;
   }
+  input,
+  textarea {
+    outline: none !important;
+  }
 }
 
 @layer components {
