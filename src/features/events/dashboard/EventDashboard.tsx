@@ -52,13 +52,24 @@ export default function EventDashboard({
         </AnimatePresence>
       </div>
       <div className='w-2/5'>
-        {formOpen && (
-          <EventForm 
-            setFormOpen={setFormOpen}
-          />
-        )}
-
-        
+        <AnimatePresence>
+          <motion.div
+            initial={{ opacity: 0, x: -200}}
+            animate={{ opacity: 1, x: 0}}
+            exit={{ opacity: 0, x: -200 }}
+            transition={{
+              duration: 0.3,
+              type: 'tween',
+              ease: 'easeInOut'
+            }}
+          >
+            {formOpen && (
+              <EventForm 
+                setFormOpen={setFormOpen}
+              />
+            )}
+          </motion.div>
+        </AnimatePresence>        
       </div>
     </div>
   )
