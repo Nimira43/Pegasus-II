@@ -17,7 +17,7 @@ export default function EventDashboard({
   const [appEvents, setAppEvents] = useState<AppEvent[]>([])
 
   const handleCreateEvent = (event: AppEvent) => {
-    setAppEvents([...appEvents, event])
+    setAppEvents(prevState => [...prevState, event])
   }
 
   useEffect(() => {
