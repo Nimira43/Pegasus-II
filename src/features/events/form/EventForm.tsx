@@ -36,7 +36,7 @@ export default function EventForm({
         />
         <input 
           name='date'
-          type='text' 
+          type='datetime-local' 
           className='input input-lg w-full'
           placeholder='Date'  
         />
