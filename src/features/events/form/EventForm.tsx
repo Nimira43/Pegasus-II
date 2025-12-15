@@ -1,5 +1,8 @@
+import type { AppEvent } from '../../../lib/types'
+
 type Props = {
   setFormOpen: (isOpen: boolean) => void
+  createEvent: (event: AppEvent) => void
 }
 
 export default function EventForm({
