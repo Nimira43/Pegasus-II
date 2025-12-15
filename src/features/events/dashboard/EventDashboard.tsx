@@ -16,6 +16,10 @@ export default function EventDashboard({
 }: Props) {
   const [appEvents, setAppEvents] = useState<AppEvent[]>([])
 
+  const handleCreateEvent = (event: AppEvent) => {
+    setAppEvents([...appEvents, event])
+  }
+
   useEffect(() => {
     setAppEvents(events)
 
