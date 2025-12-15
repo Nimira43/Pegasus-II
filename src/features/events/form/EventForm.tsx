@@ -10,7 +10,7 @@ export default function EventForm({
   createEvent
 }: Props) {
   const onSubmit = (formData: FormData) => {
-    const data = Object.fromEntries(formData.entries())
+    const data = Object.fromEntries(formData.entries()) as unknown as AppEvent
     createEvent(data)
   }
 
