@@ -5,8 +5,9 @@ type Props = {
 export default function EventForm({
   setFormOpen
 }: Props) {
-  const onSubmit = () => {
-
+  const onSubmit = (formData: FormData) => {
+    const data = Object.fromEntries(formData.entries())
+    console.log(data)
   }
 
   return (
@@ -17,30 +18,36 @@ export default function EventForm({
         className='flex flex-col gap-3 w-full'
       >
         <input 
+          name='title'
           type='text' 
           className='input input-lg w-full'
           placeholder='Event Title'  
         />
         <input 
+          name='category'
           type='text' 
           className='input input-lg w-full'
           placeholder='Category'  
         />
         <textarea  
+          name='description'
           className='textarea textarea-lg w-full'
           placeholder='Description'  
         />
         <input 
+          name='date'
           type='text' 
           className='input input-lg w-full'
           placeholder='Date'  
         />
         <input 
+          name='city'
           type='text' 
           className='input input-lg w-full'
           placeholder='City'  
         />
         <input 
+          name='venue'
           type='text' 
           className='input input-lg w-full'
           placeholder='Venue'  

@@ -51,7 +51,7 @@ export default function EventDashboard({
           </motion.div>
         </AnimatePresence>
       </div>
-      <div className='w-2/5'>
+      <div className='w-2/5 overflow-hidden'>
         <AnimatePresence>
           {formOpen && (
             <motion.div
