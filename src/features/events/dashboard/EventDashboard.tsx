@@ -68,7 +68,10 @@ export default function EventDashboard({
                 ease: 'easeInOut'
               }}
             >
-              <EventForm setFormOpen={setFormOpen} />
+              <EventForm
+                setFormOpen={setFormOpen}
+                createEvent={handleCreateEvent}
+              />
             </motion.div>
           )}
         </AnimatePresence>        
