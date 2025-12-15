@@ -6,11 +6,12 @@ type Props = {
 }
 
 export default function EventForm({
-  setFormOpen
+  setFormOpen,
+  createEvent
 }: Props) {
   const onSubmit = (formData: FormData) => {
     const data = Object.fromEntries(formData.entries())
-    console.log(data)
+    createEvent(data)
   }
 
   return (
