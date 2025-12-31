@@ -26,7 +26,7 @@ export default function EventForm({
   }
 
   return (
-    <div className='card bg-grey-light-extra p-4 flex flex-col gap-3 w-full'>
+    <div className='card bg-grey-5 p-4 flex flex-col gap-3 w-full'>
       <h3 className='text-2xl font-medium text-center text-dark'>Create New Event</h3>
       <form
         action={onSubmit}
@@ -71,13 +71,13 @@ export default function EventForm({
           <button
             onClick={() => setFormOpen(false)}
             type='button'
-            className='btn bg-main text-light hover:bg-main-dark btn-hover'
+            className='btn bg-main text-light hover:bg-main-dark transitioning'
           >
             Cancel
           </button>
           <button
             type='submit'
-            className='btn bg-main text-light hover:bg-main-dark btn-hover'
+            className='btn bg-main text-light hover:bg-main-dark transitioning'
           >
             Submit
           </button>
