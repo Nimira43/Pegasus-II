@@ -14,7 +14,7 @@
   button {
     border: none !important;
     box-shadow: none !important;
-    font-weight: 500 !important;
+    font-weight: 600 !important;
     text-transform: uppercase;
   }
   input,
@@ -27,7 +27,8 @@
   .logo {
     font-family: 'Story Script', sans-serif;
   }
-  .btn-hover {
+  .btn-hover,
+  .transitioning {
     transition: all 0.5s ease-in-out;
   }
 }

@@ -20,7 +20,7 @@ export default {
         'grey-1': '#333',
         'grey-2': '#999',
         'grey-3': '#ccc',
-        'grey-3': '#ddd',
+        'grey-4': '#ddd',
         'grey-5': '#eee',
       },
     },
