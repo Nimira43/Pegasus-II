@@ -32,6 +32,14 @@
     transition: all 0.5s ease-in-out;
   }
 
+  .nav-link {
+    @apply font-medium hover:text-grey-3 transitioning;
+  }
+
+  .nav-btn {
+    @apply bg-light text-main hover:bg-grey-3 transitioning;
+  }
+
   .event-form-input {
     @apply input input-lg w-full border border-grey-2 focus:border-main transitioning;
   }
