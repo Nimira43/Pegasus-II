@@ -10,7 +10,7 @@ export default function EventAttendees({ attendees }: Props) {
       {attendees.map(attendee => (
           <div 
             key={attendee.id}
-            className='avatar border-grey-medium border-2'
+            className='avatar border-grey-2 border-2'
           >
             <div className='w-12'>
               <img 
