@@ -32,7 +32,7 @@ export default function EventCard({event}: Props) {
         
         <div className='card-actions flex'>
           <div className='flex flex-1'>{event.description}</div>
-          <button className='btn bg-main text-light hover:bg-main-dark transitioning'>View</button>
+          <button className='btn event-btn'>View</button>
         </div>
       </div>
     </div>

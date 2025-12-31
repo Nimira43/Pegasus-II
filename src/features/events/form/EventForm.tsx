@@ -71,13 +71,13 @@ export default function EventForm({
           <button
             onClick={() => setFormOpen(false)}
             type='button'
-            className='btn event-form-btn'
+            className='btn event-btn'
           >
             Cancel
           </button>
           <button
             type='submit'
-            className='btn event-form-btn'
+            className='btn event-btn'
           >
             Submit
           </button>
