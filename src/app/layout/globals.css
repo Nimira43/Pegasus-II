@@ -39,6 +39,11 @@
   .event-form-textarea {
     @apply textarea textarea-lg w-full border border-grey-2 focus:border-main resize-none transitioning;
   }
+
+  .event-form-btn {
+    @apply bg-main text-light hover:bg-main-dark transitioning;
+  }
+
 }
 
 

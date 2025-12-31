@@ -71,13 +71,13 @@ export default function EventForm({
           <button
             onClick={() => setFormOpen(false)}
             type='button'
-            className='btn bg-main text-light hover:bg-main-dark transitioning'
+            className='btn event-form-btn'
           >
             Cancel
           </button>
           <button
             type='submit'
-            className='btn bg-main text-light hover:bg-main-dark transitioning'
+            className='btn event-form-btn'
           >
             Submit
           </button>
