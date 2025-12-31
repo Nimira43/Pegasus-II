@@ -4,11 +4,13 @@ import type { AppEvent } from '../../../lib/types'
 type Props = {
   setFormOpen: (isOpen: boolean) => void
   createEvent: (event: AppEvent) => void
+  selectedEvent:(AppEvent | null)
 }
 
 export default function EventForm({
   setFormOpen,
-  createEvent
+  createEvent,
+  selectedEvent
 }: Props) {
   const onSubmit = (formData: FormData) => {
     const data = Object.fromEntries(formData.entries()) as unknown as AppEvent
@@ -34,6 +36,7 @@ export default function EventForm({
         className='flex flex-col gap-3 w-full'
       >
         <input 
+          defaultValue={}
           name='title'
           type='text' 
           className='event-form-input'
