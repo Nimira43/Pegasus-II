@@ -23,6 +23,7 @@ export default function EventForm({
         isHost: true
       }]
     })
+    setFormOpen(false)
   }
 
   return (

@@ -15,6 +15,7 @@ export default function EventDashboard({
   setFormOpen
 }: Props) {
   const [appEvents, setAppEvents] = useState<AppEvent[]>([])
+  const [selectedEvent, setSelectedEvent] = useState<AppEvent | null>(null)
 
   const handleCreateEvent = (event: AppEvent) => {
     setAppEvents(prevState => [...prevState, event])
