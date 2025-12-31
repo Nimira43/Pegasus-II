@@ -52,6 +52,7 @@ export default function EventDashboard({
               {appEvents
                 .map((event) => (
                   <EventCard 
+                    selectEvent={handleSelectEvent}
                     key={event.id}
                     event={event}
                   />
@@ -77,6 +78,7 @@ export default function EventDashboard({
               <EventForm
                 setFormOpen={setFormOpen}
                 createEvent={handleCreateEvent}
+                selectedEvent={selectedEvent}
               />
             </motion.div>
           )}
