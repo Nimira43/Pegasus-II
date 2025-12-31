@@ -44,36 +44,41 @@ export default function EventForm({
         className='flex flex-col gap-3 w-full'
       >
         <input 
-          defaultValue={}
+          defaultValue={initalValues.title}
           name='title'
           type='text' 
           className='event-form-input'
           placeholder='Event Title'  
         />
         <input 
+          defaultValue={initalValues.category}
           name='category'
           type='text' 
           className='event-form-input'
           placeholder='Category'  
         />
         <textarea  
+          defaultValue={initalValues.description}
           name='description'
           className='event-form-textarea'
           placeholder='Description'  
         />
         <input 
+          defaultValue={initalValues.date}
           name='date'
           type='datetime-local' 
           className='event-form-input'
           placeholder='Date'  
         />
         <input 
+          defaultValue={initalValues.city}
           name='city'
           type='text' 
           className='event-form-input'
           placeholder='City'  
         />
         <input 
+          defaultValue={initalValues.venue}
           name='venue'
           type='text' 
           className='event-form-input'
