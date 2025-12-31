@@ -12,6 +12,14 @@ export default function EventForm({
   createEvent,
   selectedEvent
 }: Props) {
+  const initalValues = selectedEvent ?? {
+    title: '',
+    category: '',
+    description: '',
+    date: '',
+    city: '',
+    venue: '',
+  }
   const onSubmit = (formData: FormData) => {
     const data = Object.fromEntries(formData.entries()) as unknown as AppEvent
     createEvent({
