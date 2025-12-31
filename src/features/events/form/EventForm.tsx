@@ -35,36 +35,36 @@ export default function EventForm({
         <input 
           name='title'
           type='text' 
-          className='input input-lg w-full'
+          className='event-form-input'
           placeholder='Event Title'  
         />
         <input 
           name='category'
           type='text' 
-          className='input input-lg w-full'
+          className='event-form-input'
           placeholder='Category'  
         />
         <textarea  
           name='description'
-          className='textarea textarea-lg w-full'
+          className='event-form-textarea'
           placeholder='Description'  
         />
         <input 
           name='date'
           type='datetime-local' 
-          className='input input-lg w-full'
+          className='event-form-input'
           placeholder='Date'  
         />
         <input 
           name='city'
           type='text' 
-          className='input input-lg w-full'
+          className='event-form-input'
           placeholder='City'  
         />
         <input 
           name='venue'
           type='text' 
-          className='input input-lg w-full'
+          className='event-form-input'
           placeholder='Venue'  
         />
         <div className='flex justify-end w-full gap-3'>
