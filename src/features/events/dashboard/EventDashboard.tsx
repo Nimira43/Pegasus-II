@@ -21,6 +21,11 @@ export default function EventDashboard({
     setAppEvents(prevState => [...prevState, event])
   }
 
+  const handleSelectEvent = (event: AppEvent) => {
+    setSelectedEvent(event)
+    setFormOpen(true)
+  }
+
   useEffect(() => {
     setAppEvents(events)
 
