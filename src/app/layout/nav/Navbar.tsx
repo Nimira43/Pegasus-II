@@ -1,9 +1,11 @@
+import type { AppEvent } from '../../../lib/types'
+
 type Props = {
-  setFormOpen: (isOpen: boolean) => void
+  formToggle: (event: AppEvent | null) => void
 }
 
 export default function Navbar({
-  setFormOpen
+  formToggle
 }: Props) {
   return (
     <header className='p-3 w-full fixed top-0 z-50 bg-main'>
@@ -17,7 +19,7 @@ export default function Navbar({
           </a>
           <a
             className='nav-link'
-            onClick={() => setFormOpen(true)}
+            onClick={() => formToggle(null)}
           >
             Create
           </a>

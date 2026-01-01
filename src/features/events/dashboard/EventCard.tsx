@@ -3,10 +3,10 @@ import type { AppEvent } from '../../../lib/types'
 
 type Props = {
   event: AppEvent
-  selectEvent: (event: AppEvent) => void
+  formToggle: (event: AppEvent) => void
 }
 
-export default function EventCard({event, selectEvent}: Props) {
+export default function EventCard({event, formToggle}: Props) {
   const host = event.attendees.find(x => x.id === event.hostUid)
 
   return (
@@ -34,7 +34,7 @@ export default function EventCard({event, selectEvent}: Props) {
         <div className='card-actions flex'>
           <div className='flex flex-1'>{event.description}</div>
           <button
-            onClick={() => selectEvent(event)}
+            onClick={() => formToggle(event)}
             className='btn event-btn'
           >
             View

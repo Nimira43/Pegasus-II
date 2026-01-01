@@ -12,7 +12,7 @@ export default function EventForm({
   createEvent,
   selectedEvent
 }: Props) {
-  const initalValues = selectedEvent ?? {
+  const initialValues = selectedEvent ?? {
     title: '',
     category: '',
     description: '',
@@ -38,47 +38,59 @@ export default function EventForm({
 
   return (
     <div className='card bg-grey-5 p-4 flex flex-col gap-3 w-full'>
-      <h3 className='text-2xl font-medium text-center text-dark'>Create New Event</h3>
+      <h3 className='text-2xl font-medium text-center text-dark'>
+        {
+          selectedEvent
+            ? 'Edit Event'
+            : 'Create Event'
+        }
+      </h3>
       <form
         action={onSubmit}
         className='flex flex-col gap-3 w-full'
       >
         <input 
-          defaultValue={initalValues.title}
+          defaultValue={initialValues.title}
           name='title'
           type='text' 
           className='event-form-input'
           placeholder='Event Title'  
         />
         <input 
-          defaultValue={initalValues.category}
+          defaultValue={initialValues.category}
           name='category'
           type='text' 
           className='event-form-input'
           placeholder='Category'  
         />
         <textarea  
-          defaultValue={initalValues.description}
+          defaultValue={initialValues.description}
           name='description'
           className='event-form-textarea'
           placeholder='Description'  
         />
         <input 
-          defaultValue={initalValues.date}
+          defaultValue={
+            initialValues.date
+              ? new Date(initialValues.date)
+                .toISOString()
+                .slice(0, 16)
+              : ''
+          }
           name='date'
           type='datetime-local' 
           className='event-form-input'
           placeholder='Date'  
         />
         <input 
-          defaultValue={initalValues.city}
+          defaultValue={initialValues.city}
           name='city'
           type='text' 
           className='event-form-input'
           placeholder='City'  
         />
         <input 
-          defaultValue={initalValues.venue}
+          defaultValue={initialValues.venue}
           name='venue'
           type='text' 
           className='event-form-input'
