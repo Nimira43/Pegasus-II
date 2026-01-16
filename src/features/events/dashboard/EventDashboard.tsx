@@ -20,9 +20,22 @@ export default function EventDashboard({
 }: Props) {
   const [appEvents, setAppEvents] = useState<AppEvent[]>([])
   
-
   const handleCreateEvent = (event: AppEvent) => {
     setAppEvents(prevState => [...prevState, event])
+  }
+
+  const handleUpdateEvent = (updatedEvent: AppEvent) => {
+    setAppEvents(prevState => {
+      return prevState.map(
+        e => e.id === updatedEvent.id
+          ? updatedEvent
+          : e
+      )
+    })
+  }
+
+  const handleDeleteEvent = (eventId: string) => {
+    setAppEvents(prevState => prevState.filter(e => e.id !== eventId))
   }
 
   useEffect(() => {
@@ -52,6 +65,7 @@ export default function EventDashboard({
                 .map((event) => (
                   <EventCard 
                     formToggle={formToggle}
+                    deleteEvent={handleDeleteEvent}
                     key={event.id}
                     event={event}
                   />
@@ -79,6 +93,7 @@ export default function EventDashboard({
                 setFormOpen={setFormOpen}
                 createEvent={handleCreateEvent}
                 selectedEvent={selectedEvent}
+                updateEvent={handleUpdateEvent}
               />
             </motion.div>
           )}

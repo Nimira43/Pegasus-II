@@ -52,6 +52,9 @@
     @apply bg-main text-light hover:bg-main-dark transitioning;
   }
 
+  .dark-btn {
+    @apply bg-grey-1 text-light  hover:bg-dark transitioning;
+  }
 }
 
 
