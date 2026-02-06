@@ -1,18 +1,19 @@
 import EventAttendees from './EventAttendees'
 import type { AppEvent } from '../../../lib/types'
+import { useAppDispatch } from '../../../lib/stores/store'
+import { deleteEvent } from '../eventSlice'
 
 type Props = {
   event: AppEvent
   formToggle: (event: AppEvent) => void
-  deleteEvent: (eventId: string) => void
 }
 
 export default function EventCard({
   event,
-  formToggle,
-  deleteEvent
+  formToggle
 }: Props) {
   const host = event.attendees.find(x => x.id === event.hostUid)
+  const dispatch = useAppDispatch()
 
   return (
     <div className='card card-border bg-grey-5 w-full'>
@@ -40,7 +41,7 @@ export default function EventCard({
           <div className='flex flex-1'>{event.description}</div>
           <div className='flex gap-3'>
             <button
-              onClick={() => deleteEvent(event.id)}
+              onClick={() => dispatch(deleteEvent(event.id))}
               className='btn dark-btn'
             >
               Delete
