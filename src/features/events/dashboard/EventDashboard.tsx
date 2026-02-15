@@ -1,28 +1,15 @@
 import { useEffect } from 'react'
-import { events } from '../../../lib/data/sampleData'
 import EventForm from '../form/EventForm'
 import EventCard from './EventCard'
-import type { AppEvent } from '../../../lib/types'
 import { AnimatePresence, motion } from 'motion/react'
 import Counter from '../../counter/Counter'
 import { useAppDispatch, useAppSelector } from '../../../lib/stores/store'
 import { setEvents } from '../eventSlice'
+import { events } from '../../../lib/data/sampleData'
 
-type Props = {
-  formOpen: boolean
-  setFormOpen: (isOpen: boolean) => void
-  formToggle: (event: AppEvent | null) => void
-  selectedEvent: AppEvent | null
-}
-
-export default function EventDashboard({
-  formOpen,
-  setFormOpen,
-  formToggle,
-  selectedEvent
-}: Props) {
+export default function EventDashboard() {
   const dispatch = useAppDispatch()
-  const appEvents = useAppSelector(state => state.event.events)
+  const { events: appEvents, selectedEvent, formOpen } = useAppSelector(state => state.event)
 
   useEffect(() => {
     dispatch(setEvents(events))
@@ -46,7 +33,6 @@ export default function EventDashboard({
               {appEvents
                 .map((event) => (
                   <EventCard 
-                    formToggle={formToggle}
                     key={event.id}
                     event={event}
                   />
@@ -72,8 +58,6 @@ export default function EventDashboard({
             >
               <EventForm
                 key={selectedEvent?.id || 'new'}
-                setFormOpen={setFormOpen}
-                selectedEvent={selectedEvent}
               />
             </motion.div>
           ) : (

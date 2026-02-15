@@ -1,12 +1,9 @@
-import type { AppEvent } from '../../../lib/types'
+import { toggleForm } from '../../../features/events/eventSlice'
+import { useAppDispatch } from '../../../lib/stores/store'
 
-type Props = {
-  formToggle: (event: AppEvent | null) => void
-}
+export default function Navbar() {
+  const dispatch = useAppDispatch()
 
-export default function Navbar({
-  formToggle
-}: Props) {
   return (
     <header className='p-3 w-full fixed top-0 z-50 bg-main'>
       <div className='flex align-middle items-center px-10 mx-auto gap-6 cursor-pointer'>
@@ -19,7 +16,7 @@ export default function Navbar({
           </a>
           <a
             className='nav-link'
-            onClick={() => formToggle(null)}
+            onClick={() => dispatch(toggleForm(null))}
           >
             Create
           </a>

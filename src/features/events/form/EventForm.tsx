@@ -1,18 +1,11 @@
 import { users } from '../../../lib/data/sampleData'
-import { useAppDispatch } from '../../../lib/stores/store'
+import { useAppDispatch, useAppSelector } from '../../../lib/stores/store'
 import type { AppEvent } from '../../../lib/types'
-import { createEvent, updateEvent } from '../eventSlice'
+import { closeForm, createEvent, updateEvent } from '../eventSlice'
 
-type Props = {
-  setFormOpen: (isOpen: boolean) => void
-  selectedEvent: (AppEvent | null)
-}
-
-export default function EventForm({
-  setFormOpen,
-  selectedEvent
-}: Props) {
+export default function EventForm() {
   const dispatch = useAppDispatch()
+  const selectedEvent = useAppSelector(state => state.event.selectedEvent)
   const initialValues = selectedEvent ?? {
     title: '',
     category: '',
@@ -26,7 +19,7 @@ export default function EventForm({
     
     if (selectedEvent) {
       dispatch(updateEvent({ ...selectedEvent, ...data }))
-      setFormOpen(false)
+      dispatch(closeForm())
       return
     } else {
       dispatch(createEvent({
@@ -40,18 +33,14 @@ export default function EventForm({
           isHost: true
         }]
       }))
-      setFormOpen(false)
+      dispatch(closeForm())
     }    
   }
 
   return (
     <div className='card bg-grey-5 p-4 flex flex-col gap-3 w-full'>
       <h3 className='text-2xl font-medium text-center text-dark'>
-        {
-          selectedEvent
-            ? 'Edit Event'
-            : 'Create Event'
-        }
+        { selectedEvent ? 'Edit Event' : 'Create Event' }
       </h3>
       <form
         action={onSubmit}
@@ -106,7 +95,7 @@ export default function EventForm({
         />
         <div className='flex justify-end w-full gap-3'>
           <button
-            onClick={() => setFormOpen(false)}
+            onClick={() => dispatch(closeForm())}
             type='button'
             className='btn dark-btn'
           >

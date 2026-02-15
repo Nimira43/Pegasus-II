@@ -1,14 +1,34 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import type { AppEvent } from '../../lib/types'
+import type { AppDispatch } from '../../lib/stores/store'
+import type { RootState } from '../../lib/stores/store'
 
 type State = {
   events: AppEvent[]
   selectedEvent: AppEvent | null
+  formOpen: boolean
 }
 
 const initialState: State = {
   events: [],
-  selectedEvent: null
+  selectedEvent: null,
+  formOpen: false,
+}
+
+export function toggleForm(event: AppEvent | null) {
+  return function (dispatch: AppDispatch, getState: () => RootState) {
+    const formOpen = getState().event.formOpen
+    if (formOpen) {
+      dispatch(closeForm())
+      setTimeout(() => {
+        dispatch(selectEvent(event))
+        dispatch(openForm())
+      }, 300)
+    } else {
+      dispatch(selectEvent(event))
+      dispatch(openForm())
+    }   
+  }
 }
 
 export const eventSlice = createSlice({
@@ -33,8 +53,14 @@ export const eventSlice = createSlice({
         e => e.id !== action.payload
       )
     },
-    selectEvent: (state, action: PayloadAction<AppEvent>) => {
+    selectEvent: (state, action: PayloadAction<AppEvent | null>) => {
       state.selectedEvent = action.payload
+    },
+    openForm: (state) => {
+      state.formOpen = true
+    },
+    closeForm: (state) => {
+      state.formOpen = false
     },
   }
 })
@@ -44,5 +70,7 @@ export const {
   createEvent,
   updateEvent,
   deleteEvent,
-  selectEvent
+  selectEvent,
+  openForm,
+  closeForm
 } = eventSlice.actions
