@@ -6,7 +6,7 @@ export default function Counter() {
   const dispatch = useAppDispatch()
 
   return (
-    <div className='card bg-grey-5 p-4 shadow-lg flex flex-col gap-4'>
+    <div className='card bg-grey-5 p-4 flex flex-col gap-4'>
       <div className='text-center'>
         <div>
           <div className='font-medium uppercase text-xl'>

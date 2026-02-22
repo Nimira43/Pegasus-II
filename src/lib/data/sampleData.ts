@@ -3,63 +3,63 @@ import type { AppEvent, AppUser } from '../types'
 export const users: AppUser[] = [
   {
     uid: 'vince-id',
-    displayName: 'Vince Cartwright',
-    email: 'vince.cartwright@pegasus.com',
-    photoURL: 'https://randomuser.me/api/portraits/men/11.jpg'
+    displayName: 'Saeed Ayoub',
+    email: 'saeed.ayoub@pegasus.com',
+    photoURL: 'https://randomuser.me/api/portraits/men/56.jpg'
   },
   {
     uid: 'carlton-id',
     displayName: 'Carlton Hughes',
     email: 'carlton.hughes@griffin.com',
-    photoURL: 'https://randomuser.me/api/portraits/men/13.jpg'
+    photoURL: 'https://randomuser.me/api/portraits/men/57.jpg'
   },
   {
     uid: 'amanda-id',
     displayName: 'Amanda Wilkes',
     email: 'amanda.wilkes@unicorn.com',
-    photoURL: 'https://randomuser.me/api/portraits/women/38.jpg'
+    photoURL: 'https://randomuser.me/api/portraits/women/63.jpg'
   },
   {
     uid: 'raj-id',
     displayName: 'Raj Singh',
     email: 'raj.singh@dragon.com',
-    photoURL: 'https://randomuser.me/api/portraits/men/25.jpg'
+    photoURL: 'https://randomuser.me/api/portraits/men/39.jpg'
   },
   {
     uid: 'sarah-id',
-    displayName: 'Sarah Bennett',
-    email: 'sarah.bennett@basilisk.com',
-    photoURL: 'https://randomuser.me/api/portraits/women/12.jpg'
+    displayName: 'Amanda Moore',
+    email: 'amanda.moore@basilisk.com',
+    photoURL: 'https://randomuser.me/api/portraits/women/66.jpg'
   },
   {
     uid: 'leon-id',
     displayName: 'Leon Chambers',
     email: 'leon.chambers@mercury.com',
-    photoURL: 'https://randomuser.me/api/portraits/men/22.jpg'
+    photoURL: 'https://randomuser.me/api/portraits/men/72.jpg'
   },
   {
     uid: 'amina-id',
     displayName: 'Amina Khan',
     email: 'amina.khan@pluto.com',
-    photoURL: 'https://randomuser.me/api/portraits/women/18.jpg'
+    photoURL: 'https://randomuser.me/api/portraits/women/24.jpg'
   },
   {
     uid: 'dave-id',
     displayName: 'Dave Holloway',
     email: 'dave.holloway@saturn.com',
-    photoURL: 'https://randomuser.me/api/portraits/men/30.jpg'
+    photoURL: 'https://randomuser.me/api/portraits/men/18.jpg'
   },
   {
     uid: 'chantelle-id',
     displayName: 'Chantelle Price',
     email: 'chantelle.price@venus.com',
-    photoURL: 'https://randomuser.me/api/portraits/women/25.jpg'
+    photoURL: 'https://randomuser.me/api/portraits/women/44.jpg'
   },
   {
     uid: 'lucy-id',
     displayName: 'lucy Brookes',
     email: 'lucy.brookes@neptune.com',
-    photoURL: 'https://randomuser.me/api/portraits/women/40.jpg'
+    photoURL: 'https://randomuser.me/api/portraits/women/98.jpg'
   }
 ]
 
@@ -74,12 +74,12 @@ export const events: AppEvent[] = [
     venue: 'The Old Joint Stock Pub & Theatre, 4 Temple Row West, Birmingham B2 5NY',
     latitude: 52.4808,
     longitude: -1.8991,
-    hostUid: users[0].uid,
+    hostUid: users[1].uid,
     attendees: [
-      {id: users[0].uid, displayName: users[0].displayName, photoURL: users[0].photoURL, isHost: true},
-      {id: users[1].uid, displayName: users[1].displayName, photoURL: users[1].photoURL, isHost: false}
+      {id: users[1].uid, displayName: users[1].displayName, photoURL: users[1].photoURL, isHost: true},
+      {id: users[2].uid, displayName: users[2].displayName, photoURL: users[2].photoURL, isHost: false}
     ],
-    attendeeIds: [users[0].uid, users[1].uid]
+    attendeeIds: [users[1].uid, users[2].uid]
   },
   {
     id: 'activity-p2',
@@ -91,13 +91,13 @@ export const events: AppEvent[] = [
     venue: 'Herbert Art Gallery & Museum, Jordan Well, Coventry CV1 5QP',
     latitude: 52.4070,
     longitude: -1.5045,
-    hostUid: users[1].uid,
+    hostUid: users[4].uid,
     attendees: [
-      {id: users[1].uid, displayName: users[1].displayName, photoURL: users[1].photoURL, isHost: true},
-      {id: users[2].uid, displayName: users[2].displayName, photoURL: users[2].photoURL, isHost: false},
-      {id: users[7].uid, displayName: users[7].displayName, photoURL: users[7].photoURL, isHost: false}
+      {id: users[4].uid, displayName: users[4].displayName, photoURL: users[4].photoURL, isHost: true},
+      {id: users[0].uid, displayName: users[0].displayName, photoURL: users[0].photoURL, isHost: false},
+      {id: users[6].uid, displayName: users[6].displayName, photoURL: users[6].photoURL, isHost: false}
     ],
-    attendeeIds: [users[0].uid, users[1].uid, users[7].uid]
+    attendeeIds: [users[4].uid, users[0].uid, users[6].uid]
   },
   {
     id: 'activity-f1',
@@ -126,9 +126,9 @@ export const events: AppEvent[] = [
     hostUid: users[7].uid,
     attendees: [
       {id: users[7].uid, displayName: users[7].displayName, photoURL: users[7].photoURL, isHost: true},
-      {id: users[5].uid, displayName: users[5].displayName, photoURL: users[5].photoURL, isHost: false}
+      {id: users[9].uid, displayName: users[9].displayName, photoURL: users[9].photoURL, isHost: false}
     ],
-    attendeeIds: [users[7].uid, users[5].uid]
+    attendeeIds: [users[7].uid, users[9].uid]
   },
   {
     id: 'activity-f3',
@@ -157,8 +157,8 @@ export const events: AppEvent[] = [
     hostUid: users[4].uid,
     attendees: [
       {id: users[4].uid, displayName: users[4].displayName, photoURL: users[4].photoURL, isHost: true},
-      {id: users[9].uid, displayName: users[9].displayName, photoURL: users[9].photoURL, isHost: false}
+      {id: users[8].uid, displayName: users[8].displayName, photoURL: users[8].photoURL, isHost: false}
     ],
-    attendeeIds: [users[4].uid, users[9].uid]
+    attendeeIds: [users[4].uid, users[8].uid]
   }
 ]

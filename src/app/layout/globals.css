@@ -57,5 +57,7 @@
   }
 }
 
-
+a.active {
+  @apply text-dark;
+}
 
