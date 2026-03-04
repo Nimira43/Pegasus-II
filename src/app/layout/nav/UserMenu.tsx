@@ -1,7 +1,18 @@
-import { users } from '../../../lib/data/sampleData'
 import { RiUser6Line, RiCalendar2Line, RiLogoutBoxRLine } from 'react-icons/ri'
+import { useAppDispatch, useAppSelector } from '../../../lib/stores/store'
+import { signOut } from '../../../features/account/accountSlice'
+import { useNavigate } from 'react-router'
 
 export default function UserMenu() {
+  const navigate = useNavigate()
+  const user = useAppSelector(state => state.account.user)
+  const dispatch = useAppDispatch()
+  
+  const handleSignOut = () => {
+    dispatch(signOut())
+    navigate('/')
+  }
+  
   return (
     <div className='dropdown dropdown-bottom dropdown-end'>
       <div
@@ -11,10 +22,15 @@ export default function UserMenu() {
       >
         <div className='avatar'>
           <div className='w-11 rounded-full'>
-            <img src={users[4].photoURL} alt='User Avatar' />
+            <img
+              src={user?.photoURL || '/user.png'}
+              alt='User Avatar'
+            />
           </div>
         </div>
-        <span>Amanda</span>
+        <span>
+          {user?.displayName}
+        </span>
       </div>
       <ul
         tabIndex={0}
@@ -33,7 +49,7 @@ export default function UserMenu() {
           </div>
         </li>
         <div className='divider my-0'/>
-        <li>
+        <li onClick={handleSignOut}>
           <div className='flex items-center gap-3'>
             <RiLogoutBoxRLine className='size-6' />
             Logout
