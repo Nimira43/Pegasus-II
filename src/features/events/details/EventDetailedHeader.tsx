@@ -1,9 +1,15 @@
+import { useAppSelector } from '../../../lib/stores/store'
+
 export default function EventDetailedHeader() {
+  const event = useAppSelector(state => state.event.selectedEvent)
+  if (!event) return <div>Event not found.</div>
+  const host = event.attendees.find(x => x.id === event.hostUid)
+  
   return (
-    <div className='card bg-light'>
+    <div className='card bg-grey-4'>
       <figure className='h-64 brightness-50 rounded-lg'>
         <img 
-          src={`/images/sport.jpg`}
+          src={`/categoryImages/${event?.category}.jpg`}
           alt='event category image'
           className='w-full object-cover'
         />
@@ -11,9 +17,9 @@ export default function EventDetailedHeader() {
       <div className='card-body text-light justify-end absolute bottom-0 w-full'>
         <div className='flex justify-between'>
           <div>
-            <h2 className='card-title text-4xl font-medium'>Event Title</h2>
-            <p>Event Date</p>
-            <p>Hosted by John</p>
+            <h2 className='card-title text-4xl font-medium'>{event.title}</h2>
+            <p>{event.date}</p>
+            <p>Hosted by {host?.displayName}</p>
           </div>
           <div className='flex flex-col justify-end'>
             <button className='btn nav-btn'>Join Event</button>
