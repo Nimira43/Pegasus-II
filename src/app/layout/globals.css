@@ -49,7 +49,7 @@
   }
 
   .event-btn {
-    @apply bg-main text-light hover:bg-main-dark transitioning;
+    @apply bg-main text-light uppercase hover:bg-main-dark transitioning;
   }
 
   .dark-btn {
