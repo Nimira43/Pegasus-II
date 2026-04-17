@@ -10,8 +10,19 @@ export default function EventForm() {
   const navigate = useNavigate()
   const { id } = useParams<{ id: string }>()
   const dispatch = useAppDispatch()
+  
   const selectedEvent = useAppSelector(state => state.event.selectedEvent)
-  const { register, handleSubmit, reset } = useForm({
+  
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: {
+      errors,
+      isValid
+    }
+  } = useForm({
+    mode: 'onTouched',
     defaultValues: {
       title: '',
       category: '',
@@ -71,11 +82,25 @@ export default function EventForm() {
         className='flex flex-col gap-3 w-full'
       >
         <input 
-          {...register('title')}
+          {...register(
+            'title',
+            {required: 'Title is required'}
+          )}
           type='text' 
-          className='event-form-input'
-          placeholder='Event Title'  
+          className={
+            `event-form-input ${
+              errors.title 
+                ? 'border-red-500'
+                : ''
+            }`
+          }
+          placeholder='Event Title'
         />
+        {errors.title && (
+          <div className='text-red-500'>
+            {errors.title.message}
+          </div>
+        )}
         <input 
           {...register('category')}
           type='text' 
@@ -114,6 +139,7 @@ export default function EventForm() {
             Cancel
           </button>
           <button
+            disabled={!isValid}
             type='submit'
             className='btn event-btn'
           >
