@@ -5,25 +5,19 @@ import { createEvent, selectEvent, updateEvent } from '../eventSlice'
 import { useEffect } from 'react'
 import { useForm, type FieldValues } from 'react-hook-form'
 import type { AppEvent } from '../../../lib/types'
-import UncontrolledInput from '../../../app/shared/components/UncontrolledInput'
+import TextInput from '../../../app/shared/components/TextInput'
+import { eventFormSchema, type EventFormSchema } from '../../../lib/schemas/eventFormSchema'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 export default function EventForm() {
   const navigate = useNavigate()
   const { id } = useParams<{ id: string }>()
   const dispatch = useAppDispatch()
-  
   const selectedEvent = useAppSelector(state => state.event.selectedEvent)
   
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: {
-      errors,
-      isValid
-    }
-  } = useForm({
+  const { control, handleSubmit, reset, formState: {isValid}} = useForm<EventFormSchema>({
     mode: 'onTouched',
+    resolver: zodResolver(eventFormSchema),
     defaultValues: {
       title: '',
       category: '',
@@ -82,41 +76,36 @@ export default function EventForm() {
         onSubmit={handleSubmit(onSubmit)}
         className='flex flex-col gap-3 w-full'
       >
-        <UncontrolledInput
-          register={register}
+        <TextInput
+          control={control}
           name='title'
-          errors={errors}
-          options={{ required: 'Title is required' }}
           label='Title'
         />
-        <input 
-          {...register('category')}
-          type='text' 
-          className='event-form-input'
-          placeholder='Category'  
+        <TextInput
+          control={control}
+          name='category'
+          label='Category'
         />
-        <textarea  
-          {...register('description')}
-          className='event-form-textarea'
-          placeholder='Description'  
+        <TextInput
+          control={control}
+          name='description'
+          label='Description'
         />
-        <input 
-          {...register('date')}
-          type='datetime-local' 
-          className='event-form-input'
-          placeholder='Date'  
+        <TextInput
+          control={control}
+          name='date'
+          label='Date'
+          type='datetime-local'
         />
-        <input 
-          {...register('city')}
-          type='text' 
-          className='event-form-input'
-          placeholder='City'  
+        <TextInput
+          control={control}
+          name='city'
+          label='City'
         />
-        <input 
-          {...register('venue')}
-          type='text' 
-          className='event-form-input'
-          placeholder='Venue'  
+        <TextInput
+          control={control}
+          name='venue'
+          label='Venue'
         />
         <div className='flex justify-end w-full gap-3'>
           <button
