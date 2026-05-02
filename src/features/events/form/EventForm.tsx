@@ -8,6 +8,7 @@ import type { AppEvent } from '../../../lib/types'
 import TextInput from '../../../app/shared/components/TextInput'
 import { eventFormSchema, type EventFormSchema } from '../../../lib/schemas/eventFormSchema'
 import { zodResolver } from '@hookform/resolvers/zod'
+import TextArea from '../../../app/shared/components/TextArea'
 
 export default function EventForm() {
   const navigate = useNavigate()
@@ -86,10 +87,11 @@ export default function EventForm() {
           name='category'
           label='Category'
         />
-        <TextInput
+        <TextArea
           control={control}
           name='description'
           label='Description'
+          rows={4}
         />
         <TextInput
           control={control}

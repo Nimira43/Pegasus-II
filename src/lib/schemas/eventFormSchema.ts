@@ -7,7 +7,8 @@ const requiredString = (fieldName: string) => z
 export const eventFormSchema = z.object({
   title: requiredString('Title'), 
   category: requiredString('Category'), 
-  description: requiredString('Description'), 
+  description: requiredString('Description')
+    .min(5, 'Description must be at least 5 characters.'), 
   date: requiredString('Date'), 
   city: requiredString('City'), 
   venue: requiredString('Venue') 
