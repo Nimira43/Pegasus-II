@@ -21,6 +21,14 @@
   textarea {
     outline: none !important;
   }
+
+  select {
+    outline: none !important;
+  }
+
+  select:focus {
+    border-color: #1d5cdb !important;
+  }
 }
 
 @layer components {
@@ -46,6 +54,10 @@
   
   .event-form-textarea {
     @apply textarea textarea-lg w-full border border-grey-3 focus:border-main resize-none transitioning;
+  }
+  
+  .event-form-select {
+    @apply select select-lg w-full border border-grey-3  transitioning;
   }
 
   .event-btn {
