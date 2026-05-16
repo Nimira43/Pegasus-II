@@ -1,11 +1,12 @@
 import clsx from 'clsx'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import {
   useController,
   type FieldValues,
   type UseControllerProps
 } from 'react-hook-form'
 import type { Suggestion } from '../../../lib/types'
+import { debounce } from '../../../lib/util/util'
 
 type Props<T extends FieldValues> = {
   type?: string
@@ -19,9 +20,11 @@ export default function PlaceInput<T extends FieldValues>(
   const [loading, setLoading] = useState(false)
   const [suggestions, setSuggestions] = useState<Suggestion[]>([])
   
-  const locationUrl = '<REPLACE-WITH-KEY-IN-CODE-SNIPPET-NOTES>'
+  // const locationUrl = '<REPLACE-WITH-KEY-IN-CODE-SNIPPET-NOTES>'
+  
+  const locationUrl = 'https://api.locationiq.com/v1/autocomplete?dedupe=1&limit=6&key=pk.f0cd0db28ea15d3062b77c527870d4db'
 
-  const fetchSuggestions = async (query: string) => {
+  const fetchSuggestions = useMemo(() => debounce(async (query: string) => {
     if (!query || query.length < 3) {
       setSuggestions([])
       return
@@ -37,7 +40,7 @@ export default function PlaceInput<T extends FieldValues>(
     } finally {
       setLoading(false)
     }
-  }
+  }, 1000), [locationUrl])
 
   const handleChange = async (value: string) => {
     field.onChange(value)
@@ -61,13 +64,14 @@ export default function PlaceInput<T extends FieldValues>(
       />
       {loading && <div>Loading...</div>}
       {suggestions.length > 0 && (
-        <ul>
+        <ul className='list rounded-box p-1'>
           {suggestions.map(suggestion => (
             <li
               key={suggestion.place_id}
               onClick={
                 () => field.onChange(suggestion.display_name)
               }
+              className='list-row p-1 cursor-pointer hover:text-main transiitioning'
             >
               {suggestion.display_name}
             </li>
