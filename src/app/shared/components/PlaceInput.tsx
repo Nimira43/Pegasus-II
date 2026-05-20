@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { useMemo, useState } from 'react'
+import { useMemo, useState, useEffect } from 'react'
 import {
   useController,
   type FieldValues,
@@ -19,8 +19,15 @@ export default function PlaceInput<T extends FieldValues>(
   const {field, fieldState} = useController({...props})
   const [loading, setLoading] = useState(false)
   const [suggestions, setSuggestions] = useState<Suggestion[]>([])
+  const [inputValue, setInputValue] = useState(field.value || '')
   
-  // const locationUrl = '<REPLACE-WITH-KEY-IN-CODE-SNIPPET-NOTES>'
+  useEffect(() => {
+    if (field.value && typeof field.value === 'object') {
+      setInputValue(field.value.venue)
+    } else {
+      setInputValue(field.value || '')
+    }
+  }, [field.value])
   
   const locationUrl = 'https://api.locationiq.com/v1/autocomplete?dedupe=1&limit=6&key=pk.f0cd0db28ea15d3062b77c527870d4db'
 
@@ -43,15 +50,26 @@ export default function PlaceInput<T extends FieldValues>(
   }, 1000), [locationUrl])
 
   const handleChange = async (value: string) => {
+    setInputValue(value)
     field.onChange(value)
     await fetchSuggestions(value)
   }
+
+  const handleSelect = (location: Suggestion) => {
+    const venue = location.display_name
+    const city = location.address.city
+    const latitude = parseFloat(location.lat)
+    const longitude = parseFloat(location.lon)
+    field.onChange({ venue, city, latitude, longitude })
+    setSuggestions([])
+  }
+
   return (
     <label className='floating-label text-left'>
       <span>{props.label}</span>
       <input 
         {...field}
-        value={field.value ?? ''}
+        value={inputValue}
         onChange={e => handleChange(e.target.value)}
         type={props.type} 
         className={
@@ -69,7 +87,7 @@ export default function PlaceInput<T extends FieldValues>(
             <li
               key={suggestion.place_id}
               onClick={
-                () => field.onChange(suggestion.display_name)
+                () => handleSelect(suggestion)
               }
               className='list-row p-1 cursor-pointer hover:text-main transiitioning'
             >

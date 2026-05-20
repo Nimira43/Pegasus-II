@@ -4,6 +4,18 @@ const requiredString = (fieldName: string) => z
     .string({required_error: `${fieldName} is required`})
     .min(1, `${fieldName} is required`)
 
+const venueSchema = z.object({
+  venue: requiredString('Venue'),
+  latitude: z
+    .number({
+      required_error: 'Latitude is required'
+    }),
+  longitude: z
+    .number({
+      required_error: 'Longitude is required'
+    })
+})
+
 export const eventFormSchema = z.object({
   title: requiredString('Title'), 
   category: requiredString('Category'), 
@@ -16,8 +28,8 @@ export const eventFormSchema = z.object({
     }, {
       message: 'Date must be set in the future.'
     }), 
-  city: requiredString('City'), 
-  venue: requiredString('Venue') 
+  city: z.string().optional(), 
+  venue: venueSchema 
 })
 
 export type EventFormSchema = z.infer<typeof eventFormSchema>

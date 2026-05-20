@@ -21,15 +21,7 @@ export default function EventForm() {
   
   const { control, handleSubmit, reset, formState: {isValid}} = useForm<EventFormSchema>({
     mode: 'onTouched',
-    resolver: zodResolver(eventFormSchema),
-    defaultValues: {
-      title: '',
-      category: '',
-      description: '',
-      date: '',
-      city: '',
-      venue: '',  
-    }
+    resolver: zodResolver(eventFormSchema)
   }) 
 
   useEffect(() => {
@@ -41,6 +33,11 @@ export default function EventForm() {
           date: new Date(selectedEvent.date)
             .toISOString()
             .slice(0, 16),
+          venue: {
+            venue: selectedEvent.venue,
+            latitude: selectedEvent.latitude,
+            longitude: selectedEvent.longitude
+          }
         })
       }
     } else {
