@@ -17,7 +17,7 @@ export default function SelectInput<T extends FieldValues>(
   const {field, fieldState} = useController({...props})
 
   return (
-    <label className='floating-label text-left'>
+    <label className='floating-label text-left w-full'>
       <span>{props.label}</span>
       <select 
         {...field}

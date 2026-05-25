@@ -47,7 +47,13 @@ export default function EventForm() {
 
   const onSubmit = (data: FieldValues) => {    
     if (selectedEvent) {
-      dispatch(updateEvent({ ...selectedEvent, ...data }))
+      dispatch(updateEvent({
+        ...selectedEvent,
+        ...data,
+        venue: data.venue.venue,
+        latitude: data.venue.latitude,
+        longitude: data.venue.longitude
+      }))
       navigate(`/events/${selectedEvent.id}`)
       return
     } else {
@@ -55,6 +61,9 @@ export default function EventForm() {
       const newEvent = {
         ...data,
         id,
+        venue: data.venue.venue,
+        latitude: data.venue.latitude,
+        longitude: data.venue.longitude,
         hostUid: users[0].uid,
         attendees: [{
           id: users[0].uid,
@@ -75,32 +84,36 @@ export default function EventForm() {
       </h3>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className='flex flex-col gap-3 w-full'
+        className='flex flex-col gap-6 w-full'
       >
         <TextInput
           control={control}
           name='title'
           label='Title'
         />
-        <SelectInput
-          control={control}
-          name='category'
-          label='Category'
-          options={categoryOptions}
-        />
+        
         <TextArea
           control={control}
           name='description'
           label='Description'
           rows={4}
         />
-        <TextInput
-          control={control}
-          name='date'
-          label='Date'
-          type='datetime-local'
-          min={new Date()}
-        />
+        <div className='flex gap-3 items-center w-full'>
+          <SelectInput
+            control={control}
+            name='category'
+            label='Category'
+            options={categoryOptions}
+          />
+          <TextInput
+            control={control}
+            name='date'
+            label='Date'
+            type='datetime-local'
+            min={new Date()}
+          />
+        </div>
+        
         <PlaceInput
           control={control}
           name='venue'
