@@ -4,9 +4,9 @@ import { useAppSelector } from '../../../lib/stores/store'
 export default function EventDetailedSidebar() {
   const event = useAppSelector(state => state.event.selectedEvent)
   return (
-    <div className='card bg-grey-4'>
-      <div className='card-title rounded-t-lg justify-center bg-main text-light py-2'>
-        {event?.attendees.length} are going
+    <div className='card bg-grey-4 rounded'>
+      <div className='card-title rounded-t justify-center bg-main text-light py-2 uppercase'>
+        Attending: {event?.attendees.length} 
       </div>
       <div className='card-body'>
         <div className='flex flex-col gap-3'>
@@ -28,7 +28,7 @@ export default function EventDetailedSidebar() {
                   </span>
                 </div>
                 {event.hostUid === attendee.id && (
-                  <div className='badge bg-main text-light'>
+                  <div className='badge rounded bg-main text-light'>
                     Host
                   </div>
                 )}

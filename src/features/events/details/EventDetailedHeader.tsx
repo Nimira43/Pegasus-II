@@ -7,8 +7,8 @@ export default function EventDetailedHeader() {
   const host = event.attendees.find(x => x.id === event.hostUid)
   
   return (
-    <div className='card bg-grey-4'>
-      <figure className='h-64 brightness-50 rounded-lg'>
+    <div className='card bg-grey-4 rounded'>
+      <figure className='h-64 brightness-50 rounded'>
         <img 
           src={`/categoryImages/${event?.category}.jpg`}
           alt='event category image'

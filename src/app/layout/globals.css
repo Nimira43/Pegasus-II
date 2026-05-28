@@ -60,7 +60,8 @@
     @apply select select-lg w-full border border-grey-3  transitioning;
   }
 
-  .event-btn {
+  .event-btn,
+  .main-btn {
     @apply bg-main text-light uppercase hover:bg-main-dark transitioning;
   }
 
