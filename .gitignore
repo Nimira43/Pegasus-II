@@ -25,3 +25,4 @@ dist-ssr
 .env
 .env-locale
 .env-local
+src/lib/firebase/admin-creds.json
