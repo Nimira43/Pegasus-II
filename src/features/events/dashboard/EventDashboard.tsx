@@ -1,9 +1,32 @@
 import EventCard from './EventCard'
 import Counter from '../../counter/Counter'
-import { useAppSelector } from '../../../lib/stores/store'
+import { useAppDispatch, useAppSelector } from '../../../lib/stores/store'
+import { useCallback, useSyncExternalStore } from 'react'
+import { collection, onSnapshot, query } from 'firebase/firestore'
+import { db } from '../../../lib/firebase/firebase'
+import type { FirestoreAppEvent } from '../../../lib/types'
+import { setEvents } from '../eventSlice'
 
 export default function EventDashboard() {
+  const dispatch = useAppDispatch()
   const { events: appEvents } = useAppSelector(state => state.event)
+
+  const listenToEvents = useCallback(() => {
+    const q = query(collection(db, 'events'))
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const events: FirestoreAppEvent[] = []
+      snapshot.forEach((doc) => {
+        events.push({ id: doc.id, ...doc.data() } as FirestoreAppEvent)
+      })
+      dispatch(setEvents(events))
+    })
+
+    return () => {
+      unsubscribe()
+    }
+  }, [dispatch])
+
+  useSyncExternalStore(listenToEvents, () => appEvents)
 
   return (
     <div className='flex flex-row w-full gap-6'>
