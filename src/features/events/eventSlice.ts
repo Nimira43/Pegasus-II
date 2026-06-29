@@ -47,9 +47,19 @@ export const eventSlice = createSlice({
         e => e.id !== action.payload
       )
     },
-    selectEvent: (state, action: PayloadAction<string | null>) => {
-      state.selectedEvent = state.events.find(e => e.id === action.payload) || null
-    },
+    selectEvent: {
+      reducer: (state, action: PayloadAction<AppEvent>) => {
+        state.selectedEvent = action.payload
+      },
+      prepare: (event: FirestoreAppEvent) => {
+        return {
+          payload: {
+            ...event,
+            date: event.date.toDate().toISOString() 
+          }
+        }
+      }
+    }
   }
 })
 
