@@ -12,7 +12,9 @@ import { categoryOptions } from './categoryOptions'
 import PlaceInput from '../../../app/shared/components/PlaceInput'
 import { useDocument } from '../../../lib/hooks/useDocuments'
 import { useFirestoreActions } from '../../../lib/hooks/useFirestoreActions'
-import { Timestamp } from 'firebase/firestore'
+import { FirestoreError, Timestamp } from 'firebase/firestore'
+import { toast } from 'react-toastify'
+import { handleError } from '../../../lib/util/util'
 
 export default function EventForm() {
   const navigate = useNavigate()
@@ -52,30 +54,34 @@ export default function EventForm() {
   }
 
   const onSubmit = async (data: EventFormSchema) => {    
-    if (selectedEvent) {
-      await update(selectedEvent.id, {
-        ...selectedEvent,
-        ...data,
-        ...processFormData(data)
-      })
-      navigate(`/events/${selectedEvent.id}`)
-      return
-    } else {
-      const id = crypto.randomUUID()
-      const newEvent = {
-        ...data,
-        id,
-        ...processFormData(data),
-        hostUid: users[0].uid,
-        attendees: [{
-          id: users[0].uid,
-          displayName: users[0].displayName,
-          photoURL: users[0].photoURL,
-          isHost: true
-        }]
-      }
-      navigate(`/events/${id}`)
-    }    
+    try {
+      if (selectedEvent) {
+        await update(selectedEvent.id, {
+          ...selectedEvent,
+          ...data,
+          ...processFormData(data)
+        })
+        navigate(`/events/${selectedEvent.id}`)
+        return
+      } else {
+        const id = crypto.randomUUID()
+        const newEvent = {
+          ...data,
+          id,
+          ...processFormData(data),
+          hostUid: users[0].uid,
+          attendees: [{
+            id: users[0].uid,
+            displayName: users[0].displayName,
+            photoURL: users[0].photoURL,
+            isHost: true
+          }]
+        }
+        navigate(`/events/${id}`)
+      }    
+    } catch (error) {
+      handleError(error)
+    }
   }
 
   if (loading) return <div>Loading</div>
