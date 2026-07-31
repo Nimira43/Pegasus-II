@@ -12,8 +12,7 @@ import { categoryOptions } from './categoryOptions'
 import PlaceInput from '../../../app/shared/components/PlaceInput'
 import { useDocument } from '../../../lib/hooks/useDocuments'
 import { useFirestoreActions } from '../../../lib/hooks/useFirestoreActions'
-import { FirestoreError, Timestamp } from 'firebase/firestore'
-import { toast } from 'react-toastify'
+import { Timestamp } from 'firebase/firestore'
 import { handleError } from '../../../lib/util/util'
 
 export default function EventForm() {
@@ -22,7 +21,7 @@ export default function EventForm() {
   
   const { data: selectedEvent, loading } = useDocument<AppEvent>({ path: 'events', id })
   
-  const { update, submitting } = useFirestoreActions<FirestoreAppEvent>({ path: 'events' })
+  const { update, submitting, create } = useFirestoreActions<FirestoreAppEvent>({ path: 'events' })
 
   const { control, handleSubmit, reset, formState: { isValid } } = useForm<EventFormSchema>({
     mode: 'onTouched',
@@ -64,10 +63,8 @@ export default function EventForm() {
         navigate(`/events/${selectedEvent.id}`)
         return
       } else {
-        const id = crypto.randomUUID()
         const newEvent = {
           ...data,
-          id,
           ...processFormData(data),
           hostUid: users[0].uid,
           attendees: [{
@@ -75,9 +72,11 @@ export default function EventForm() {
             displayName: users[0].displayName,
             photoURL: users[0].photoURL,
             isHost: true
-          }]
+          }],
+          attendeeIds: [users[0].uid]
         }
-        navigate(`/events/${id}`)
+        const ref = await create(newEvent as FirestoreAppEvent)
+        navigate(`/events/${ref.id}`)
       }    
     } catch (error) {
       handleError(error)
