@@ -8,27 +8,33 @@ import { signIn } from './accountSlice'
 import { GiPegasus } from 'react-icons/gi'
 import TextInput from '../../app/shared/components/TextInput'
 import { toast } from 'react-toastify'
+import { handleError } from '../../lib/util/util'
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '../../lib/firebase/firebase'
+import { spawn } from 'node:child_process'
 
 export default function LoginForm() {
   const navigate = useNavigate()
   const {
     control,
     handleSubmit,
-    formState: { isValid },
+    formState: {
+      isValid,
+      isSubmitting
+    },
   } = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema),
   })
   const dispatch = useAppDispatch()
 
-  const onSubmit = (data: LoginSchema) => {
-    const user = users.find(x => x.email === data.email)
-
-    if (user) {
-      dispatch(signIn(user))
-      navigate('/events')
-    } else {
-      toast.error('Invalid email or password')
+  const onSubmit = async (data: LoginSchema) => {
+    try {
+      const result = await signInWithEmailAndPassword(auth, data.email, data.password)
+      console.log(result)
+    } catch (error) {
+      handleError(error)
     }
+    
   }
 
   return (
@@ -58,9 +64,10 @@ export default function LoginForm() {
           />
           <button
             className='btn main-btn w-full'
-            disabled={!isValid}
+            disabled={!isValid || isSubmitting}
             type='submit'
           >
+            {isSubmitting && <span className='loading loading-spinner'></span>}
             Login
           </button>
         </form>
